@@ -1,6 +1,8 @@
 alert("Hola campeón del mundo 💙🤍");
 let edad = prompt("Ingrese su edad");
 
+//Pregunta si es mayor de edad
+
 function edadpermitida(edad) {
   if (edad >= 18) {
     let nombre = prompt("Ingrese su nombre");
