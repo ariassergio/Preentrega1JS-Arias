@@ -47,6 +47,11 @@ header{
     height: auto;
 
 }
+.imgcarrito{
+    filter: invert(100%);
+    width: 45px;
+    height: auto;
+}
 .contenedor{
     display: flex;
     justify-content: center;
