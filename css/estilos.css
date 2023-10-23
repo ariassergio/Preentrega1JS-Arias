@@ -102,3 +102,9 @@ header{
 .informacion button:hover{
     background-color: brown;
 }
+#agregarAlCarrito{
+    color: black;
+}
+#cantidad{
+    color: black;
+}
