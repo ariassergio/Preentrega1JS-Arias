@@ -61,13 +61,13 @@ header{
 }
 .contenedor>div{
     border-radius: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: aquamarine;
+    background-color: #f2ff7f;
     border-radius: 20px;
 }
 .contenedor>div:hover{
-    background-color: blue;
+    background-color: #006eff85;
 }
-.informacion{
+.producto{
     height: 150px;
     display: flex;
     justify-content: center;
@@ -75,21 +75,25 @@ header{
     flex-direction: column;
     gap: 15px;
 }
-.informacion>p:first-child{
+.producto>p:first-child{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 25px;
     font-weight: 300;
 }
-.informacion .precio{
+.producto .precio{
     font-size: 20px;
     font-weight: 500;
+    
 }
-.informacion .precio span{
+.pprecio{
+    color: red;
+}
+.producto .precio span{
     font-size: 17px;
     font-weight: 300;
 }
-.informacion button{
-    background-color: blueviolet;
+.producto button{
+    background-color: rgb(0, 0, 0);
     width: 100px;
     height: 35;
     border-radius: 10px;
@@ -99,7 +103,7 @@ header{
     font-weight: 300;
     cursor: pointer;
 }
-.informacion button:hover{
+.producto button:hover{
     background-color: brown;
 }
 #agregarAlCarrito{
@@ -109,5 +113,11 @@ header{
     color: black;
 }
 .eliminar-producto{
+    color: black;
+}
+p{
+    color: black;
+}
+span{
     color: black;
 }

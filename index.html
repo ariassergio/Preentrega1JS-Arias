@@ -17,43 +17,13 @@
             <ul id="lista-carrito">
                 <!-- Aquí se mostrarán los productos seleccionados -->
             </ul>
+            <p>Total a pagar: <span id="total-a-pagar">$0.00</span></p>
         </div>
     </header>
     <div class="contenedor" id="contenedor">
-        <div>
-            <img src="imagenes/camisetaalgodon.jpg" alt="camiseta de algodon blanca">
-            <div class="informacion">
-                <p>Camiseta de algodon blanca</p>
-                <p class="precio">$4499<span>.99</span></p>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div>
-            <img src="imagenes/camisetalgodonne.jpg" alt="camiseta de algodon negra">
-            <div class="informacion">
-                <p>Camiseta de algodon negra</p>
-                <p class="precio">$4499<span>.99</span></p>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div>
-            <img src="imagenes/camisetatitular.jpg" alt="camiseta titular Argentina">
-            <div class="informacion">
-                <p>Camiseta titular </p>
-                <p class="precio">$1599<span>.99</span></p>
-                <button>Comprar</button>
-            </div>
-        </div>
-        <div>
-            <img src="imagenes/camisetasuplente.jpg" alt="camiseta suplente de Argentina">
-            <div class="informacion">
-                <p>Camiseta suplente</p>
-                <p class="precio">$1599<span>.99</span></p>
-                <button>Comprar</button>
-            </div>
-        </div>
         
     </div>
+    
     <div id="mensaje-producto" style="display: none;"></div>
     <div id="carritos" class="carrito-contenedor">
         <ul id="lista-carrito">
@@ -62,14 +32,14 @@
         </ul>
         
     </div>
-
-    <!--Pregunta cuantas unidades -->
+    
 
     <div id="dialog" class="dialogo" style="display: none;">
         <p>Selecciona la cantidad:</p>
         <input type="number" id="cantidad" min="1" value="1">
         <button id="agregarAlCarrito">Agregar al carrito</button>
     </div>
+    
     
     <div id="result"></div>
     <script src="app.js"></script>
