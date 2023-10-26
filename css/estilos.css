@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    
 }
 body{
     background-color: #00000056;
@@ -21,19 +21,22 @@ img{
     object-fit: cover;
     border-radius: 20px 20px 0px 0px;
 }
-header{
+#header{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15%;
-    height: 70px;
+    max-height: 100px;
     top: 0;
     position: fixed;
     width: 100%;
+    overflow-y: auto;
+    
+    
 }
 .scroll{
     background-color: #00000054;
-    box-shadow: .1rem .2rem .3rem #333;
+    box-shadow: .1rem .2rem .3rem hsl(64, 89%, 46%);
 }
 .scroll img{
     filter: invert(15%);
@@ -45,6 +48,7 @@ header{
     filter: invert(100%);
     width: 45px;
     height: auto;
+    
 
 }
 .imgcarrito{
@@ -57,12 +61,15 @@ header{
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    
 }
 .contenedor>div{
     border-radius: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     background-color: #f2ff7f;
     border-radius: 20px;
+    
 }
 .contenedor>div:hover{
     background-color: #006eff85;
@@ -106,18 +113,21 @@ header{
 .producto button:hover{
     background-color: brown;
 }
-#agregarAlCarrito{
-    color: black;
+
+#botonCompra{
+    
+    margin-top: 10px;
+    
 }
-#cantidad{
-    color: black;
+.ingresedatos{
+    margin-top: 10px;
+    margin: 15px;
 }
-.eliminar-producto{
-    color: black;
+
+h3{
+   margin-bottom: 7px;
+    color: yellow;
 }
-p{
-    color: black;
-}
-span{
-    color: black;
+.botoncomprar{
+    color: white;
 }

@@ -9,6 +9,41 @@ window.addEventListener("scroll", function() {
     }
 })
 
+// Obtén referencias a los elementos de entrada y al botón de guardar
+const nombreInput = document.getElementById("nombreInput");
+const apellidoInput = document.getElementById("apellidoInput");
+const guardarNombreApellidoBtn = document.getElementById("guardarNombreApellido");
+
+// Comprueba si ya hay nombres y apellidos guardados en el LocalStorage
+const storedNombre = localStorage.getItem("nombre");
+const storedApellido = localStorage.getItem("apellido");
+
+// Si se encuentran nombres y apellidos en el LocalStorage, llénalos en los campos de entrada
+if (storedNombre) {
+    nombreInput.value = storedNombre;
+}
+
+if (storedApellido) {
+    apellidoInput.value = storedApellido;
+}
+
+// Agrega un evento de clic al botón de guardar
+guardarNombreApellidoBtn.addEventListener("click", function() {
+    // Obtiene los valores de nombre y apellido ingresados por el usuario
+    const nombre = nombreInput.value;
+    const apellido = apellidoInput.value;
+
+    // Guarda los valores en el LocalStorage
+    localStorage.setItem("nombre", nombre);
+    localStorage.setItem("apellido", apellido);
+
+    // Muestra el mensaje de bienvenida con los valores ingresados por el usuario
+    alert("Hola " + nombre + " " + apellido + ". Muchas gracias por visitarnos");
+});
+
+
+
+
 const contenedorProductos = document.getElementById("contenedor");
 
 const productos = [
@@ -46,7 +81,7 @@ const productos = [
             <div class="producto">
                 <p>${producto.nombre}</p>
                 <p class="pprecio" > ${producto.precio}</p>
-                <button onclick="comprarProducto(${JSON.stringify(producto)})">Comprar</button>
+                <button class="botoncomprar" onclick="comprarProducto(${JSON.stringify(producto)})">Comprar</button>
             </div>
         </div>    
     `;
@@ -86,6 +121,7 @@ const mensajeProducto = document.getElementById('mensaje-producto');
 function mostrarProductoSeleccionado(event) {
     const productoSeleccionado = event.target.parentElement.querySelector('p:first-child').textContent;
     mensajeProducto.textContent = `Producto seleccionado: ${productoSeleccionado}`;
+    mensajeProducto.className = 'producto-seleccionado';
     mensajeProducto.style.display = 'block';
     
 }
@@ -110,6 +146,16 @@ function eliminarProductoDelCarrito(elementoCarrito, precio, cantidad) {
 
    
 }
+
+// Obtén una referencia al botón
+var botonCompra = document.getElementById("botonCompra");
+
+// Agrega un controlador de eventos al botón
+botonCompra.addEventListener("click", function() {
+  // Muestra un alert al hacer clic en el botón
+  alert("¡Muchas gracias por su compra!");
+});
+
 
 const dialog = document.getElementById('dialog');
 const cantidadInput = document.getElementById('cantidad');

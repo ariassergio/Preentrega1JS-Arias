@@ -13,13 +13,29 @@
             <img src="imagenes/carrito.png" class="imgcarrito" alt="carrito de compras">
         </div>
         <div id="carrito-contenido" class="carrito-contenido" style="display: none;">
-            <h2>Productos en el carrito</h2>
+            
             <ul id="lista-carrito">
                 <!-- Aquí se mostrarán los productos seleccionados -->
+                <h2>Productos en el carrito</h2>
             </ul>
             <p>Total a pagar: <span id="total-a-pagar">$0.00</span></p>
+            <button id="botonCompra">Confirmar Compra</button>
+
         </div>
     </header>
+    <!-- Agrega estos elementos al formulario existente -->
+    
+    <div class="ingresedatos">
+        <h3>Ingrese su nombre y apellido</h3>
+        <label class="nombre" for="nombre">Nombre:</label>
+        <input type="text" id="nombreInput" required>
+        
+        <label class="apellido" for="apellido">Apellido:</label>
+        <input type="text" id="apellidoInput" required>
+        
+        <button id="guardarNombreApellido">Guardar Nombre y Apellido</button>
+    </div>
+
     <div class="contenedor" id="contenedor">
         
     </div>
