@@ -8,7 +8,9 @@ window.addEventListener("scroll", function() {
         header.classList.remove("scroll")
     }
 })
+////
 
+/*
 // Obtén referencias a los elementos de entrada y al botón de guardar
 const nombreInput = document.getElementById("nombreInput");
 const apellidoInput = document.getElementById("apellidoInput");
@@ -26,7 +28,35 @@ if (storedNombre) {
 if (storedApellido) {
     apellidoInput.value = storedApellido;
 }
+// Agrega un evento de clic al botón de guardar
+guardarNombreApellidoBtn.addEventListener("click", async () => {
+    const { value: formValues } = await Swal.fire({
+        title: 'Ingresa tu nombre y apellido',
+        html:
+            '<input id="swal-input1" class="swal2-input" value="' + nombreInput.value + '">' +
+            '<input id="swal-input2" class "swal2-input" value="' + apellidoInput.value + '">',
+        focusConfirm: false,
+        preConfirm: () => {
+            return [
+                document.getElementById('swal-input1').value,
+                document.getElementById('swal-input2').value
+            ]
+        }
+    });
 
+    if (formValues) {
+        const [nombre, apellido] = formValues;
+
+        // Guarda los valores en el LocalStorage
+        localStorage.setItem("nombre", nombre);
+        localStorage.setItem("apellido", apellido);
+
+        // Muestra el mensaje de bienvenida con los valores ingresados por el usuario
+        Swal.fire("Hola " + nombre + " " + apellido + ". Muchas gracias por visitarnos");
+    }
+});
+
+/*
 // Agrega un evento de clic al botón de guardar
 guardarNombreApellidoBtn.addEventListener("click", function() {
     // Obtiene los valores de nombre y apellido ingresados por el usuario
@@ -40,7 +70,7 @@ guardarNombreApellidoBtn.addEventListener("click", function() {
     // Muestra el mensaje de bienvenida con los valores ingresados por el usuario
     alert("Hola " + nombre + " " + apellido + ". Muchas gracias por visitarnos");
 });
-
+*/
 
 
 
@@ -152,10 +182,14 @@ var botonCompra = document.getElementById("botonCompra");
 
 // Agrega un controlador de eventos al botón
 botonCompra.addEventListener("click", function() {
-  // Muestra un alert al hacer clic en el botón
-  alert("¡Muchas gracias por su compra!");
+    Swal.fire(
+        'Compra realizada con exito!',
+        '',
+        'success'
+      
+    )
+    
 });
-
 
 const dialog = document.getElementById('dialog');
 const cantidadInput = document.getElementById('cantidad');
@@ -185,9 +219,39 @@ function agregarAlCarrito() {
         botonEliminar.textContent = 'Eliminar';
         elementoCarrito.appendChild(botonEliminar);
 
+
+        /*botonEliminar.addEventListener('click', function() {
+            eliminarProductoDelCarrito(elementoCarrito, precio, cantidad);
+            
+        });*/
         botonEliminar.addEventListener('click', function() {
             eliminarProductoDelCarrito(elementoCarrito, precio, cantidad);
+            
+            function eliminarProductoDelCarrito(elemento, precio, cantidad) {
+                Swal.fire({
+                    title: 'Vas a eliminar un producto, ¿Estás seguro?',
+                    text: '', 
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Lógica para eliminar el producto del carrito
+                        elemento.remove();
+                        contadorProductos -= cantidad;
+                        totalCarrito -= precio * cantidad;
+                        const contadorCarrito = document.getElementById('contador-carrito');
+                        const totalCarritoElement = document.getElementById('total-carrito');
+                        contadorCarrito.textContent = contadorProductos;
+                        totalCarritoElement.textContent = totalCarrito.toFixed(2);
+                    }
+                });
+            }
         });
+       
+        
 
         contadorProductos += cantidad;
         totalCarrito += precio * cantidad;
@@ -212,3 +276,5 @@ function agregarAlCarrito() {
     }
     
 }
+
+  
