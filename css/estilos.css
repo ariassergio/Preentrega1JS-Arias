@@ -141,4 +141,12 @@ h3{
 }
 #dialog{
     margin: 10px;
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
+}
+.dialogo{
+    background-color: aqua;
+    align-items: center;
+    justify-content: center;
 }
