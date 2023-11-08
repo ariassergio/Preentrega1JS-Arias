@@ -56,7 +56,21 @@
     opacity: 0.9;
 }
 
-
+.cart-counter{
+    display: none;
+    position: fixed;
+    top: 89vh;
+    right: 35px;
+    color: aliceblue;
+    text-align: center;
+    align-items: center;
+    background-color: red;
+    padding: 4px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+}
 /* Modal */
 
 .modal-overlay{

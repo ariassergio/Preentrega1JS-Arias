@@ -2,6 +2,7 @@ const modalContainer = document.getElementById("modal-container");
 const modalOverlay = document.getElementById("modal-overlay");
 
 const cartBtn = document.getElementById("cart-btn");
+const cartCounter = document.getElementById("cart-counter");
 
 const displayCart = () => {
     modalContainer.innerHTML = "";
@@ -29,6 +30,7 @@ const displayCart = () => {
     modalContainer.append(modalHeader);
 
     // Modal del Body
+    if (cart.Length > 0){
     cart.forEach((product) =>{
         const modalBody = document.createElement("div");
         modalBody.className = "modal-body"
@@ -48,17 +50,66 @@ const displayCart = () => {
         </div>    
         `;
         modalContainer.append(modalBody);
+        
+        //Sacar cantidad de productos
+        const decrese = modalBody.querySelector(".quantify-btn-decrese")
+        decrese.addEventListener("click", () =>{
+            if(product.quanty !== 1){
+                product.quanty--;
+                displayCart();
+                displayCartCounter();
+            }
+           
+        })
+
+        //Aumentar cantidad de productos
+
+        const increse = modalBody.querySelector(".quantify-btn-increse");
+        increse.addEventListener("click", () =>{
+            product.quanty++;
+            displayCart();
+            displayCartCounter();
+        })
+
+        //Eliminar productos
+
+        const deleteProduct = modalBody.querySelector(".delete-product");
+
+        deleteProduct.addEventListener("click", () =>{
+            deleteCartProduct(product.id);
+        })
     });
 
     //modal footer
-
+    const total = cart.reduce((acc, el) => acc + el.price * el.quanty, 0)
     const modalfooter = document.createElement("div");
     modalfooter.className = "modal-footer"
     modalfooter.innerHTML = `
-        <div class="total-price">Total ;)</div>
+        <div class="total-price"> Total: ${total}</div>
     `;
     modalContainer.append(modalfooter)
-
+}else{
+    const modalText = document.createElement("h2")
+    modalText.className = "modal-body";
+    modalText.innerText = "El carrito esta vacio";
+    modalContainer.append(modalText)
+}
 };
 
 cartBtn.addEventListener("click", displayCart);
+
+const deleteCartProduct = (id) =>{
+    const foundId = cart.findIndex((element) => element.id == id);
+    console.log(foundId);
+    cart.splice(foundId, 1);
+    displayCart();
+    displayCartCounter();
+}
+
+//Contador del carrito
+
+const displayCartCounter = () =>{
+    const cartLength = cart.reduce((acc, el) => acc +  el.quanty, 0)
+    cartCounter.style.display = "block";
+    cartCounter.innerText = cartLength;
+}
