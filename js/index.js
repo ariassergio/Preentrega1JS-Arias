@@ -6,12 +6,12 @@ productos.forEach((product)=>{
     content.innerHTML = `
     <img src="${product.img}">
     <h3>${product.productName}</h3>
-    <p>${product.price}$</p> 
+    <p>$${product.price}</p> 
     `;
     shopContent.append(content);
 
     const buyButton = document.createElement("button");
-    buyButton.innerText = "Buy";
+    buyButton.innerText = "Agregar al carrito";
 
     content.append(buyButton);
 
