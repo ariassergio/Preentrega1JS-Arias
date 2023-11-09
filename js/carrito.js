@@ -1,17 +1,17 @@
 const productos = [
     {
         id: 1,
-        productName: "Camiseta de algodon blanca",
-        price: 5000,
+        productName: "Buzo de algodon blanco",
+        price: 20000,
         quanty: 1,
         img: "./imagenes/camisetaalgodon.jpg",
     },
     {
         id: 2,
-        productName: "Camiseta de algodon negra",
-        price: 5000,
+        productName: "Camiseta Dibu Martinez",
+        price: 26000,
         quanty: 1,
-        img: "./imagenes/camisetalgodonne.png"
+        img: "./imagenes/dibu.png"
         
     },
     {
