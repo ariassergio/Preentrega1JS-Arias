@@ -57,9 +57,10 @@ const displayCart = () => {
             if(product.quanty !== 1){
                 product.quanty--;
                 displayCart();
-                
+                saveLocal();
             }
             displayCartCounter();
+            
         });
 
         //Aumentar cantidad de productos
@@ -69,6 +70,7 @@ const displayCart = () => {
             product.quanty++;
             displayCart();
             displayCartCounter();
+            saveLocal();
         });
 
         //Eliminar productos
@@ -77,6 +79,8 @@ const displayCart = () => {
 
         deleteProduct.addEventListener("click", () =>{
             deleteCartProduct(product.id);
+
+            saveLocal();
         });
     });
 
@@ -132,9 +136,18 @@ const displayCartCounter = () =>{
     if(cartLength > 0){
 
         cartCounter.style.display = "block";
-        cartCounter.innerText = cartLength;
+
+        const carritoLength = cartLength
+        
+        localStorage.setItem("carritoLength", JSON.stringify(carritoLength));
+
+        cartCounter.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+
+        //cartCounter.innerText = cartLength;
     
     }else{
         cartCounter.style.display = "none";
     }
 }
+
+displayCartCounter();

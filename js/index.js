@@ -1,5 +1,5 @@
 const shopContent = document.getElementById("shopContent");
-const cart = [];
+const cart = JSON.parse(localStorage.getItem("carrito")) || [];
 
 productos.forEach((product)=>{
     const content = document.createElement("div");
@@ -34,8 +34,15 @@ productos.forEach((product)=>{
                 img: product.img,
             });
             displayCartCounter();
+            saveLocal();
         }
     
        
     });
 });
+
+const saveLocal = () =>{
+   localStorage.setItem("carrito", JSON.stringify(cart)); 
+}
+
+
